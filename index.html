@@ -15,7 +15,7 @@
 
 h1 {
     text-align: center;
-    color: #ff4500;
+    color: #d9ff00;
     margin-top: 20px;
 }
 
@@ -109,7 +109,7 @@ footer a:hover {
 </head>
 <body>
 
-    <h1>UPSC CSE Study Material By UZAIR</h1>
+    <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw=="><h1>UPSC Study Material</h1></a>
     <div class="buttons-container">
         <!-- History Section -->
         <h2>History</h2>
@@ -183,48 +183,61 @@ footer a:hover {
     <!-- Footer -->
     <footer>
         <p>All study materials provided here belong to their respective owners. 
-        We do not own the content. Copyrights of the books are retained by their authors and publishers. <a href="https://www.google.com">Contact us</a> for inquiries.</p>
+        We do not own the content. Copyrights of the books are retained by their authors and publishers. <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw==">Contact us</a> for inquiries.</p>
     </footer>
 
     <script>
-      function loadPDF(fileId) {
-    const iframe = document.getElementById('pdf-viewer');
-    // Set the PDF URL
-    iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+// Function to load a PDF into the iframe and scroll to the viewer smoothly
+function loadPDF(fileId) {
+    try {
+        console.log(`Attempting to load PDF with ID: ${fileId}`);
+        
+        if (!fileId) {
+            console.error("File ID is missing. Ensure the button has the correct file ID.");
+            return;
+        }
 
-    // Scroll to the PDF viewer
-    iframe.scrollIntoView({ behavior: 'smooth' });
+        const iframe = document.getElementById('pdf-viewer');
+        if (!iframe) {
+            console.error("PDF viewer iframe not found in the DOM.");
+            return;
+        }
+
+        // Set the PDF URL
+        iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+        console.log(`PDF successfully loaded with ID: ${fileId}`);
+
+        // Scroll to the PDF viewer smoothly
+        setTimeout(() => {
+            iframe.scrollIntoView({ behavior: 'smooth' });
+        }, 200); // Delay added to ensure iframe is updated
+    } catch (error) {
+        console.error("Error loading PDF:", error);
+    }
 }
 
-// Add double-click functionality to toggle fullscreen mode
-document.getElementById('pdf-viewer').parentElement.addEventListener('dblclick', () => {
-    const container = document.getElementById('pdf-viewer').parentElement;
-    if (!document.fullscreenElement) {
-        // Request fullscreen
-        if (container.requestFullscreen) {
-            container.requestFullscreen();
-        } else if (container.mozRequestFullScreen) { // Firefox
-            container.mozRequestFullScreen();
-        } else if (container.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            container.webkitRequestFullscreen();
-        } else if (container.msRequestFullscreen) { // IE/Edge
-            container.msRequestFullscreen();
+// Ensure all buttons are correctly initialized
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("JavaScript loaded and DOM ready.");
+
+    // Find all buttons with the class 'button'
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach((button) => {
+        const fileId = button.getAttribute("onclick")?.match(/'([^']+)'/)[1];
+        const buttonText = button.textContent.trim();
+
+        if (fileId) {
+            console.log(`Initializing button: ${buttonText} with file ID: ${fileId}`);
+            button.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent default behavior
+                loadPDF(fileId); // Load the PDF for this button
+            });
+        } else {
+            console.warn(`Button "${buttonText}" is missing a valid file ID.`);
         }
-    } else {
-        // Exit fullscreen
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { // Firefox
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { // IE/Edge
-            document.msExitFullscreen();
-        }
-    }
+    });
 });
-
-
     </script>
 
 </body>
