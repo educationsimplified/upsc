@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Study Material</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    color: #ff4500;
+    margin-top: 20px;
+}
+
+/* Styling for each section heading */
+.buttons-container h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff4500;
+    padding-bottom: 5px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Styling for each group of buttons */
+.section-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.button {
+    background: linear-gradient(45deg, #ff4500, #ff7300);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #ff4500;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff7300;
+}
+
+iframe {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #111;
+    color: #999;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    .button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    iframe {
+        height: 60vh;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>UPSC Study Material</h1>
+    <div class="buttons-container">
+        <!-- History Section -->
+        <h2>History</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1cZzPhCLstaMyRkJ77t0-XyI3DiS-oKbo')">Ancient India History</a>
+            <a class="button" href="#" onclick="loadPDF('1aiwkzjfnHtZKtEoKtmh5P9kNtBse1LDq')">Medieval India</a>
+            <a class="button" href="#" onclick="loadPDF('1NkEu3l3fZ90uzDQe435J-NjAyUHogvUF')">Modern Indian History</a>
+            <a class="button" href="#" onclick="loadPDF('1m6H-H9K43Ol96TdP-l-XFw_Px1DNsCMH')">Post Independence History</a>
+            <a class="button" href="#" onclick="loadPDF('1GSsCCao6Ki4ViAB287ZES8GMdF0T8Vy-')">World History</a>
+        </div>
+    
+        <!-- Geography and Environment Section -->
+        <h2>Geography & Environment</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1PUTs6giHVA0SG8WJTjKjyzadg52vXa43')">Geography</a>
+            <a class="button" href="#" onclick="loadPDF('10nWTEYpseotk21j3L02qErUD27Oa2rL2')">Environment and Ecology</a>
+            <a class="button" href="#" onclick="loadPDF('1sNssgvJ0gmYWuIFbvmubs_Pf6NnaSPTA')">Disaster Management</a>
+        </div>
+    
+        <!-- Governance and Polity Section -->
+        <h2>Governance & Polity</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1Usp3x87P6xhAS5TnBKAeXh9__OPz__L-')">Governance in India</a>
+            <a class="button" href="#" onclick="loadPDF('1PbOiQCeI90PrRul4XKoZRKaFUbsL_c7R')">Indian Polity Part 1</a>
+            <a class="button" href="#" onclick="loadPDF('1_KtscZGihY8EpDyfIx_T_ps7wOXTkMdx')">Indian Polity Part 2</a>
+        </div>
+    
+        <!-- Society Section -->
+        <h2>Society</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('13ykL0HVIfps7iloiAy5-Ujm9X0iXtmUj')">Indian Society</a>
+            <a class="button" href="#" onclick="loadPDF('1_EkZsCBEKeCoNAweErM-6gL3LuiLwvyB')">Social Justice</a>
+        </div>
+    
+        <!-- Economy Section -->
+        <h2>Economy</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1FkkYZ5pjymuWtKRSbORK09RCmMeJeOYD')">Indian Economy</a>
+        </div>
+    
+        <!-- Science and Technology Section -->
+        <h2>Science & Technology</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1kb_FNEkHblEQ_378Tojay53Udym2q3Jl')">Science & Technology</a>
+        </div>
+    
+        <!-- Ethics and International Relations Section -->
+        <h2>Ethics & International Relations</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('15pPEZvDQMLsZehi3wwNLC0BJ6-6AAVYK')">Ethics, Integrity & Aptitude</a>
+            <a class="button" href="#" onclick="loadPDF('1iLY4XUGk4-gdnjN9-MEyfJxF0rxT6lHU')">International Relations</a>
+        </div>
+    
+        <!-- Security Section -->
+        <h2>Internal Security</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1TQs6YFsss5Hq5-i2yfjd0yPccYwCDDnN')">Internal Security</a>
+        </div>
+    
+        <!-- Art and Culture Section -->
+        <h2>Art & Culture</h2>
+        <div class="section-group">
+            <a class="button" href="#" onclick="loadPDF('1WKCjkeAND5b-M40T2AwLcp5SdyVCn9oK')">Indian Art & Culture</a>
+        </div>
+    </div>
+    
+
+    <iframe id="pdf-viewer" src="" style="margin-top: 20px;" allowfullscreen></iframe>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>All study materials provided here belong to their respective owners. 
+        We do not own the content. Copyrights of the books are retained by their authors and publishers. <a href="https://www.google.com">Contact us</a> for inquiries.</p>
+    </footer>
+
+    <script>
+      function loadPDF(fileId) {
+    const iframe = document.getElementById('pdf-viewer');
+    // Set the PDF URL
+    iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+
+    // Scroll to the PDF viewer
+    iframe.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Add double-click functionality to toggle fullscreen mode
+document.getElementById('pdf-viewer').parentElement.addEventListener('dblclick', () => {
+    const container = document.getElementById('pdf-viewer').parentElement;
+    if (!document.fullscreenElement) {
+        // Request fullscreen
+        if (container.requestFullscreen) {
+            container.requestFullscreen();
+        } else if (container.mozRequestFullScreen) { // Firefox
+            container.mozRequestFullScreen();
+        } else if (container.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            container.webkitRequestFullscreen();
+        } else if (container.msRequestFullscreen) { // IE/Edge
+            container.msRequestFullscreen();
+        }
+    } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+});
+
+
+    </script>
+
+</body>
+</html>
