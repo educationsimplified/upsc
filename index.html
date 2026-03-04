@@ -1,255 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPSC Study Material</title>
-    <style>
-        body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1a1a;
-    color: #fff;
-}
-
-h1 {
-    text-align: center;
-    color: #ffb700;
-    margin-top: 20px;
-}
-        /* Link styling */
-a {
-    color: #ffffff; /* Orange color for links */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
-/* Styling for each section heading */
-.buttons-container h2 {
-    color: #ffffff;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    border-bottom: 2px solid #ff4500;
-    padding-bottom: 5px;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-/* Styling for each group of buttons */
-.section-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-}
-
-.button {
-    background: linear-gradient(45deg, #ff4500, #ff7300);
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px #ff4500;
-}
-
-.button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #ff7300;
-}
-
-iframe {
-    width: 100%;
-    height: 80vh;
-    border: none;
-    margin-top: 20px;
-}
-
-footer {
-    background-color: #111;
-    color: #999;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 14px;
-    margin-top: 20px;
-}
-
-footer a {
-    color: #ff4500;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
-    .button {
-        font-size: 14px;
-        padding: 8px 15px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CivilPrep — UPSC Study Portal by Uzair</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim: #8a7035;
+      --ink: #0D0E12;
+      --ink-2: #14151B;
+      --ink-3: #1C1D26;
+      --ink-4: #252733;
+      --mist: #2E3044;
+      --paper: #F5F0E8;
+      --text-primary: #EDEAE2;
+      --text-secondary: #9B9580;
+      --accent-red: #C0392B;
+      --accent-teal: #1A7A6E;
     }
 
-    iframe {
-        height: 60vh;
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--ink);
+      color: var(--text-primary);
+      margin: 0;
+      overflow-x: hidden;
     }
 
-    h2 {
-        font-size: 1.5em;
+    /* ── Grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
     }
-}
 
-    </style>
+    /* ── Typography ── */
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+
+    /* ── Gold gradient text ── */
+    .gold-text {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dim) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Hero background ── */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 90% 60%, rgba(26,122,110,0.1) 0%, transparent 60%),
+        var(--ink);
+    }
+
+    /* ── Decorative divider ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .ornament::after {
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+    }
+
+    /* ── Section cards ── */
+    .subject-card {
+      background: linear-gradient(145deg, var(--ink-3), var(--ink-4));
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .subject-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .subject-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      box-shadow: 0 0 40px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
+      transform: translateY(-3px);
+    }
+    .subject-card:hover::before { opacity: 1; }
+
+    /* ── Material button ── */
+    .mat-btn {
+      background: linear-gradient(135deg, var(--ink-4) 0%, var(--mist) 100%);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .mat-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .mat-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      box-shadow: 0 0 20px rgba(201,168,76,0.15), 0 4px 20px rgba(0,0,0,0.4);
+      transform: translateY(-1px);
+    }
+    .mat-btn:hover::after { opacity: 1; }
+    .mat-btn.active {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
+      color: var(--gold-light);
+      box-shadow: 0 0 20px rgba(201,168,76,0.2);
+    }
+
+    /* ── PDF Viewer panel ── */
+    #viewer-panel {
+      background: var(--ink-2);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(30px);
+      opacity: 0;
+      max-height: 0;
+    }
+    #viewer-panel.open {
+      transform: translateY(0);
+      opacity: 1;
+      max-height: 1000px;
+    }
+
+    .viewer-topbar {
+      background: linear-gradient(90deg, var(--ink-3), var(--ink-4));
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    iframe#pdf-frame {
+      width: 100%;
+      height: 82vh;
+      border: none;
+      display: block;
+    }
+
+    /* ── Stat badges ── */
+    .stat-pill {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: rgba(13,14,18,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* ── Section icon badge ── */
+    .icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ── Scroll animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Progress bar ── */
+    .topbar-progress {
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--ink-3);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--text-primary);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 13px;
+      z-index: 1000;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Right-click / copy protection ── */
+    .protected { user-select: none; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ── Pulse dot ── */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .pulse { animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* stagger children */
+    .section-group .mat-btn:nth-child(1) { animation-delay: 0.05s; }
+    .section-group .mat-btn:nth-child(2) { animation-delay: 0.10s; }
+    .section-group .mat-btn:nth-child(3) { animation-delay: 0.15s; }
+    .section-group .mat-btn:nth-child(4) { animation-delay: 0.20s; }
+    .section-group .mat-btn:nth-child(5) { animation-delay: 0.25s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float { animation: float 6s ease-in-out infinite; }
+  </style>
 </head>
-<body>
+<body class="protected">
 
-    <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw=="><h1>UPSC Study Material by UZAIR </h1></a>
-    <div class="buttons-container">
-        <!-- History Section -->
-        <h2>History</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1cZzPhCLstaMyRkJ77t0-XyI3DiS-oKbo')">Ancient India History</a>
-            <a class="button" href="#" onclick="loadPDF('1aiwkzjfnHtZKtEoKtmh5P9kNtBse1LDq')">Medieval India</a>
-            <a class="button" href="#" onclick="loadPDF('1NkEu3l3fZ90uzDQe435J-NjAyUHogvUF')">Modern Indian History</a>
-            <a class="button" href="#" onclick="loadPDF('1m6H-H9K43Ol96TdP-l-XFw_Px1DNsCMH')">Post Independence History</a>
-            <a class="button" href="#" onclick="loadPDF('1GSsCCao6Ki4ViAB287ZES8GMdF0T8Vy-')">World History</a>
+  <!-- Progress bar -->
+  <div class="topbar-progress" id="progress-bar"></div>
+
+  <!-- Toast -->
+  <div id="toast">📄 Loading document…</div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="icon-badge" style="background:rgba(201,168,76,0.12);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
         </div>
-    
-        <!-- Geography and Environment Section -->
-        <h2>Geography & Environment</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1PUTs6giHVA0SG8WJTjKjyzadg52vXa43')">Geography</a>
-            <a class="button" href="#" onclick="loadPDF('10nWTEYpseotk21j3L02qErUD27Oa2rL2')">Environment and Ecology</a>
-            <a class="button" href="#" onclick="loadPDF('1sNssgvJ0gmYWuIFbvmubs_Pf6NnaSPTA')">Disaster Management</a>
+        <div>
+          <span class="font-display font-bold text-lg gold-text tracking-wide">ES Prep</span>
+          <p class="text-xs m-0 leading-none" style="color:var(--text-secondary); margin-top:2px;">UPSC Study Portal</p>
         </div>
-    
-        <!-- Governance and Polity Section -->
-        <h2>Governance & Polity</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1Usp3x87P6xhAS5TnBKAeXh9__OPz__L-')">Governance in India</a>
-            <a class="button" href="#" onclick="loadPDF('1PbOiQCeI90PrRul4XKoZRKaFUbsL_c7R')">Indian Polity Part 1</a>
-            <a class="button" href="#" onclick="loadPDF('1_KtscZGihY8EpDyfIx_T_ps7wOXTkMdx')">Indian Polity Part 2</a>
-        </div>
-    
-        <!-- Society Section -->
-        <h2>Society</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('13ykL0HVIfps7iloiAy5-Ujm9X0iXtmUj')">Indian Society</a>
-            <a class="button" href="#" onclick="loadPDF('1_EkZsCBEKeCoNAweErM-6gL3LuiLwvyB')">Social Justice</a>
-        </div>
-    
-        <!-- Economy Section -->
-        <h2>Economy</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1FkkYZ5pjymuWtKRSbORK09RCmMeJeOYD')">Indian Economy</a>
-        </div>
-    
-        <!-- Science and Technology Section -->
-        <h2>Science & Technology</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1kb_FNEkHblEQ_378Tojay53Udym2q3Jl')">Science & Technology</a>
-        </div>
-    
-        <!-- Ethics and International Relations Section -->
-        <h2>Ethics & International Relations</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('15pPEZvDQMLsZehi3wwNLC0BJ6-6AAVYK')">Ethics, Integrity & Aptitude</a>
-            <a class="button" href="#" onclick="loadPDF('1iLY4XUGk4-gdnjN9-MEyfJxF0rxT6lHU')">International Relations</a>
-        </div>
-    
-        <!-- Security Section -->
-        <h2>Internal Security</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1TQs6YFsss5Hq5-i2yfjd0yPccYwCDDnN')">Internal Security</a>
-        </div>
-    
-        <!-- Art and Culture Section -->
-        <h2>Art & Culture</h2>
-        <div class="section-group">
-            <a class="button" href="#" onclick="loadPDF('1WKCjkeAND5b-M40T2AwLcp5SdyVCn9oK')">Indian Art & Culture</a>
-        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="stat-pill hidden sm:inline-flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400 pulse inline-block"></span>
+          19 Resources
+        </span>
+        <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw==" target="_blank"
+           class="flex items-center gap-2 text-sm px-4 py-2 rounded-lg font-medium transition-all duration-200"
+           style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+          @uzairvibes
+        </a>
+      </div>
     </div>
-    
+  </nav>
 
-    <iframe id="pdf-viewer" src="" style="margin-top: 20px;" allowfullscreen></iframe>
+  <!-- ══ HERO ══ -->
+  <section class="hero-bg pt-20 pb-16 text-center relative overflow-hidden">
+    <!-- Decorative circles -->
+    <div class="absolute top-0 left-0 w-96 h-96 rounded-full float" style="background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%);transform:translate(-30%,-30%)"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full" style="background:radial-gradient(circle,rgba(26,122,110,0.07),transparent 70%);transform:translate(20%,30%)"></div>
 
+    <div class="relative max-w-3xl mx-auto px-5">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-mono tracking-widest uppercase"
+           style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:var(--gold);">
+        ✦ Civil Services Examination Preparation ✦
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>All study materials provided here belong to their respective owners. 
-        We do not own the content. Copyrights of the books are retained by their authors and publishers. <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw==">Contact us</a> for inquiries.</p>
-    </footer>
+      <h1 class="font-display font-black text-5xl sm:text-6xl leading-tight mb-5">
+        <span class="gold-text">Master the</span><br/>
+        <span style="color:var(--text-primary);">Civil Services</span>
+      </h1>
 
-    <script>
-// Function to load a PDF into the iframe and scroll to the viewer smoothly
-function loadPDF(fileId) {
-    try {
-        console.log(`Attempting to load PDF with ID: ${fileId}`);
-        
-        if (!fileId) {
-            console.error("File ID is missing. Ensure the button has the correct file ID.");
-            return;
-        }
+      <p class="text-base sm:text-lg leading-relaxed mb-8" style="color:var(--text-secondary); max-width:520px; margin-inline:auto;">
+        Curated, high-quality study materials covering every UPSC GS paper — structured for focused, efficient preparation.
+      </p>
 
-        const iframe = document.getElementById('pdf-viewer');
-        if (!iframe) {
-            console.error("PDF viewer iframe not found in the DOM.");
-            return;
-        }
+      <div class="flex flex-wrap gap-4 justify-center">
+        <div class="stat-pill">📚 GS Papers I–IV</div>
+        <div class="stat-pill">🗓️ Prelims + Mains</div>
+        <div class="stat-pill">🔖 Curated Notes</div>
+        <div class="stat-pill">🆓 Free Access</div>
+      </div>
+    </div>
+  </section>
 
-        // Set the PDF URL
-        iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
-        console.log(`PDF successfully loaded with ID: ${fileId}`);
+  <!-- ══ CONTENT ══ -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
 
-        // Scroll to the PDF viewer smoothly
-        setTimeout(() => {
-            iframe.scrollIntoView({ behavior: 'smooth' });
-        }, 200); // Delay added to ensure iframe is updated
-    } catch (error) {
-        console.error("Error loading PDF:", error);
-    }
-}
+    <!-- Ornament -->
+    <div class="ornament mb-12 fade-up">
+      <span class="font-mono text-xs tracking-[0.2em] uppercase" style="color:var(--gold-dim);">Study Materials</span>
+    </div>
 
-// Ensure all buttons are correctly initialized
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("JavaScript loaded and DOM ready.");
+    <!-- Subjects grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" id="subjects-grid">
 
-    // Find all buttons with the class 'button'
-    const buttons = document.querySelectorAll(".button");
+      <!-- History -->
+      <div class="subject-card p-6 fade-up" data-section="History">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(192,57,43,0.12);">📜</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">History</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper I — 5 topics</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">5</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1cZzPhCLstaMyRkJ77t0-XyI3DiS-oKbo','Ancient India History')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Ancient India
+          </button>
+          <button class="mat-btn" onclick="openDoc('1aiwkzjfnHtZKtEoKtmh5P9kNtBse1LDq','Medieval India')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Medieval India
+          </button>
+          <button class="mat-btn" onclick="openDoc('1NkEu3l3fZ90uzDQe435J-NjAyUHogvUF','Modern Indian History')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Modern India
+          </button>
+          <button class="mat-btn" onclick="openDoc('1m6H-H9K43Ol96TdP-l-XFw_Px1DNsCMH','Post Independence History')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Post Independence
+          </button>
+          <button class="mat-btn" onclick="openDoc('1GSsCCao6Ki4ViAB287ZES8GMdF0T8Vy-','World History')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            World History
+          </button>
+        </div>
+      </div>
 
-    buttons.forEach((button) => {
-        const fileId = button.getAttribute("onclick")?.match(/'([^']+)'/)[1];
-        const buttonText = button.textContent.trim();
+      <!-- Geography & Environment -->
+      <div class="subject-card p-6 fade-up" data-section="Geography">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(26,122,110,0.15);">🌍</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Geography & Environment</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper I & III — 3 topics</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">3</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1PUTs6giHVA0SG8WJTjKjyzadg52vXa43','Geography')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Geography
+          </button>
+          <button class="mat-btn" onclick="openDoc('10nWTEYpseotk21j3L02qErUD27Oa2rL2','Environment and Ecology')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Environment & Ecology
+          </button>
+          <button class="mat-btn" onclick="openDoc('1sNssgvJ0gmYWuIFbvmubs_Pf6NnaSPTA','Disaster Management')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            Disaster Management
+          </button>
+        </div>
+      </div>
 
-        if (fileId) {
-            console.log(`Initializing button: ${buttonText} with file ID: ${fileId}`);
-            button.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent default behavior
-                loadPDF(fileId); // Load the PDF for this button
-            });
-        } else {
-            console.warn(`Button "${buttonText}" is missing a valid file ID.`);
-        }
+      <!-- Governance & Polity -->
+      <div class="subject-card p-6 fade-up" data-section="Polity">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(41,128,185,0.15);">⚖️</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Governance & Polity</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper II — 3 topics</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">3</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1Usp3x87P6xhAS5TnBKAeXh9__OPz__L-','Governance in India')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Governance in India
+          </button>
+          <button class="mat-btn" onclick="openDoc('1PbOiQCeI90PrRul4XKoZRKaFUbsL_c7R','Indian Polity Part 1')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Polity Part I
+          </button>
+          <button class="mat-btn" onclick="openDoc('1_KtscZGihY8EpDyfIx_T_ps7wOXTkMdx','Indian Polity Part 2')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Polity Part II
+          </button>
+        </div>
+      </div>
+
+      <!-- Society -->
+      <div class="subject-card p-6 fade-up" data-section="Society">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(142,68,173,0.15);">👥</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Society</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper I — 2 topics</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">2</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('13ykL0HVIfps7iloiAy5-Ujm9X0iXtmUj','Indian Society')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Indian Society
+          </button>
+          <button class="mat-btn" onclick="openDoc('1_EkZsCBEKeCoNAweErM-6gL3LuiLwvyB','Social Justice')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+            Social Justice
+          </button>
+        </div>
+      </div>
+
+      <!-- Economy -->
+      <div class="subject-card p-6 fade-up" data-section="Economy">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(39,174,96,0.12);">📈</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Economy</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper III — 1 topic</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">1</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1FkkYZ5pjymuWtKRSbORK09RCmMeJeOYD','Indian Economy')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Indian Economy
+          </button>
+        </div>
+      </div>
+
+      <!-- Science & Technology -->
+      <div class="subject-card p-6 fade-up" data-section="Science">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(52,152,219,0.12);">🔬</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Science & Technology</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper III — 1 topic</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">1</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1kb_FNEkHblEQ_378Tojay53Udym2q3Jl','Science & Technology')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11m0 0H5m4 0h10m-10 0v4a2 2 0 002 2h4m0-6v6m0-6h4a2 2 0 012 2v4a2 2 0 01-2 2h-4m0 0H9"/></svg>
+            Science & Technology
+          </button>
+        </div>
+      </div>
+
+      <!-- Ethics & IR -->
+      <div class="subject-card p-6 fade-up" data-section="Ethics">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(230,126,34,0.12);">🤝</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Ethics & Int. Relations</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper II & IV — 2 topics</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">2</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('15pPEZvDQMLsZehi3wwNLC0BJ6-6AAVYK','Ethics, Integrity & Aptitude')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Ethics & Aptitude
+          </button>
+          <button class="mat-btn" onclick="openDoc('1iLY4XUGk4-gdnjN9-MEyfJxF0rxT6lHU','International Relations')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            International Relations
+          </button>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="subject-card p-6 fade-up" data-section="Security">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(192,57,43,0.12);">🛡️</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Internal Security</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper III — 1 topic</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">1</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1TQs6YFsss5Hq5-i2yfjd0yPccYwCDDnN','Internal Security')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Internal Security
+          </button>
+        </div>
+      </div>
+
+      <!-- Art & Culture -->
+      <div class="subject-card p-6 fade-up" data-section="Culture">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="icon-badge" style="background:rgba(241,196,15,0.12);">🎭</div>
+          <div>
+            <h2 class="font-display font-bold text-lg" style="color:var(--text-primary);">Art & Culture</h2>
+            <p class="text-xs mt-0.5" style="color:var(--text-secondary);">GS Paper I — 1 topic</p>
+          </div>
+          <span class="ml-auto stat-pill text-xs">1</span>
+        </div>
+        <div class="section-group flex flex-wrap gap-2">
+          <button class="mat-btn" onclick="openDoc('1WKCjkeAND5b-M40T2AwLcp5SdyVCn9oK','Indian Art & Culture')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+            Indian Art & Culture
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ PDF VIEWER ══ -->
+    <div id="viewer-panel" class="mt-12">
+      <div class="viewer-topbar">
+        <div class="flex items-center gap-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="viewer-title" class="font-medium text-sm" style="color:var(--text-primary);">Document Viewer</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="stat-pill text-xs" id="viewer-section">—</span>
+          <button onclick="closeViewer()" class="ml-2 w-8 h-8 rounded-lg flex items-center justify-center transition-colors hover:bg-white/10"
+                  style="color:var(--text-secondary);" title="Close viewer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe id="pdf-frame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+    </div>
+
+    <!-- Spacer -->
+    <div class="h-20"></div>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer style="background:var(--ink-2);border-top:1px solid rgba(201,168,76,0.1);">
+    <div class="max-w-7xl mx-auto px-5 py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="text-center sm:text-left">
+          <span class="font-display font-bold gold-text text-xl">CivilPrep</span>
+          <p class="text-xs mt-1" style="color:var(--text-secondary);">Curated by <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw==" target="_blank" style="color:var(--gold);">Uzair</a> for serious UPSC aspirants</p>
+        </div>
+        <div class="text-center text-xs leading-relaxed" style="color:var(--text-secondary); max-width:360px;">
+          All materials belong to their respective authors and publishers. This portal does not claim ownership of any content. For inquiries, reach out on Instagram.
+        </div>
+        <a href="https://www.instagram.com/uzairvibes?igsh=MXEwczdtd290aXl0Zw==" target="_blank"
+           class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
+           style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+          Follow @uzairvibes
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══ -->
+  <script>
+    // ── Disable right-click, text-select, keyboard shortcuts ──
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      // Block Ctrl+C, Ctrl+S, Ctrl+P, Ctrl+U, F12, PrintScreen
+      if (
+        (e.ctrlKey && ['c','s','u','p','a'].includes(e.key.toLowerCase())) ||
+        e.key === 'F12' ||
+        e.key === 'PrintScreen'
+      ) {
+        e.preventDefault();
+        showToast('⛔ Content is protected');
+      }
     });
-});
-    </script>
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
 
+    // ── Toast ──
+    const toastEl = document.getElementById('toast');
+    let toastTimer;
+    function showToast(msg) {
+      clearTimeout(toastTimer);
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2800);
+    }
+
+    // ── Open document in viewer ──
+    let activeBtn = null;
+    function openDoc(fileId, title) {
+      if (!fileId) return;
+      const frame = document.getElementById('pdf-frame');
+      const panel = document.getElementById('viewer-panel');
+      const titleEl = document.getElementById('viewer-title');
+      const sectionEl = document.getElementById('viewer-section');
+
+      // Update active button style
+      if (activeBtn) activeBtn.classList.remove('active');
+      const btns = document.querySelectorAll('.mat-btn');
+      btns.forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(fileId)) {
+          activeBtn = b;
+          b.classList.add('active');
+          const section = b.closest('[data-section]')?.dataset.section || '';
+          sectionEl.textContent = section;
+        }
+      });
+
+      // Use /preview to prevent share/download buttons
+      frame.src = '';
+      setTimeout(() => {
+        frame.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      }, 50);
+
+      titleEl.textContent = title;
+
+      // Open panel
+      panel.classList.add('open');
+
+      showToast(`📄 Loading — ${title}`);
+
+      // Scroll to viewer
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+
+    function closeViewer() {
+      const panel = document.getElementById('viewer-panel');
+      const frame = document.getElementById('pdf-frame');
+      panel.classList.remove('open');
+      setTimeout(() => { frame.src = ''; }, 500);
+      if (activeBtn) { activeBtn.classList.remove('active'); activeBtn = null; }
+    }
+
+    // ── Scroll progress bar ──
+    window.addEventListener('scroll', () => {
+      const winHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / winHeight) * 100;
+      document.getElementById('progress-bar').style.width = progress + '%';
+    });
+
+    // ── Intersection Observer for fade-up animations ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
